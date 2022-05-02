@@ -41,7 +41,7 @@ public class ArrayDeque<T> {
             nextLast = size + 1;
             items = p;
         }
-        else{
+        else {
             // Reduce the array to save memory. When usage ratio < 0.25.
             if (nextFirst < nextLast) {
                 System.arraycopy(items, start, p, 1, size);
@@ -62,7 +62,7 @@ public class ArrayDeque<T> {
         if (index == items.length -1){
             index = 0;
         }
-        else{
+        else {
             index += 1;
         }
         return index;
@@ -73,7 +73,7 @@ public class ArrayDeque<T> {
         if (index == 0){
             index = items.length - 1;
         }
-        else{
+        else {
             index -= 1;
         }
         return index;
@@ -91,7 +91,7 @@ public class ArrayDeque<T> {
 
     /** Adds an item of type int to the back of the deque.*/
     public void addLast(T item) {
-        if(size == items.length){
+        if (size == items.length){
             resize(size * refactor);
         }
         items[nextLast] = item;
@@ -118,7 +118,7 @@ public class ArrayDeque<T> {
         if (size == 0){
             System.out.println("Empty array!");
         }
-        else{
+        else {
             int i = addOne(nextFirst);
             for(int j = 0; j < size; j++){
                 System.out.print(items[i] + " ");
@@ -141,7 +141,7 @@ public class ArrayDeque<T> {
             }
             return res;
         }
-        else{
+        else {
             return null;
         }
     }
@@ -160,7 +160,7 @@ public class ArrayDeque<T> {
             }
             return res;
         }
-        else{
+        else {
             return  null;
         }
     }
@@ -172,7 +172,7 @@ public class ArrayDeque<T> {
         if (index > size -1 || index < 0){
             return null;
         }
-        else{
+        else {
             index = (index + addOne(nextFirst)) % items.length;
             return items[index];
         }
