@@ -40,15 +40,14 @@ public class ArrayDeque<T> {
             nextFirst = 0;
             nextLast = size + 1;
             items = p;
-        }
-        else {
+        } else {
             // Reduce the array to save memory. When usage ratio < 0.25.
             if (nextFirst < nextLast) {
                 System.arraycopy(items, start, p, 1, size);
-            }
-            else { // nextFirst > nextLast
+            } else { // nextFirst > nextLast
                 System.arraycopy(items, start, p, 1, items.length - start);
-                System.arraycopy(items, 0, p, items.length - start + 1, size - items.length + start);
+                System.arraycopy(items, 0, p, items.length - start + 1,
+                        size - items.length + start);
 
             }
             items = p;
@@ -59,10 +58,9 @@ public class ArrayDeque<T> {
 
     /** Private helper function to move pointer.*/
     private int addOne(int index) {
-        if (index == items.length -1){
+        if (index == items.length - 1) {
             index = 0;
-        }
-        else {
+        } else {
             index += 1;
         }
         return index;
@@ -70,10 +68,9 @@ public class ArrayDeque<T> {
 
     /** Private helper function to minus pointer. */
     private int minusOne(int index) {
-        if (index == 0){
+        if (index == 0) {
             index = items.length - 1;
-        }
-        else {
+        } else {
             index -= 1;
         }
         return index;
@@ -81,7 +78,7 @@ public class ArrayDeque<T> {
 
     /** Adds an item of type int to the front of the deque.*/
     public void addFirst(T item) {
-        if (size == items.length){
+        if (size == items.length) {
             resize(size * refactor);
         }
         items[nextFirst] = item;
@@ -91,7 +88,7 @@ public class ArrayDeque<T> {
 
     /** Adds an item of type int to the back of the deque.*/
     public void addLast(T item) {
-        if (size == items.length){
+        if (size == items.length) {
             resize(size * refactor);
         }
         items[nextLast] = item;
@@ -102,46 +99,45 @@ public class ArrayDeque<T> {
 
     /** Returns true if deque is empty, false otherwise. */
     public boolean isEmpty() {
-        if (size == 0){
+        if (size == 0) {
             return true;
         }
         return false;
     }
 
     /** Returns the number of items in the deque.*/
-    public int size(){
+    public int size() {
         return size;
     }
 
     /** Prints the items in the deque from first to last, separated by a space.*/
     public void printDeque() {
-        if (size == 0){
+        if (size == 0) {
             System.out.println("Empty array!");
-        }
-        else {
+        } else {
             int i = addOne(nextFirst);
-            for(int j = 0; j < size; j++){
+            for (int j = 0; j < size; j++) {
                 System.out.print(items[i] + " ");
                 i = addOne(i);
             }
         }
     }
 
-    /** Removes and returns the item at the front of the deque. If no such item exists, returns null.*/
+    /** Removes and returns the item at the front of the deque.
+     * If no such item exists, returns null.*/
     public T removeFirst() {
-        if (size >= 1){
+        if (size >= 1) {
             T res = items[addOne(nextFirst)];
             items[addOne(nextFirst)] = null;
             nextFirst = addOne(nextFirst);
             size -= 1;
 
             // Resize the array to save memory.
-            if (items.length > 16 && size == items.length / 4){
+            if (items.length > 16 && size == items.length / 4) {
                 resize(items.length / refactor);
             }
             return res;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -149,18 +145,17 @@ public class ArrayDeque<T> {
     /** Removes and returns the item at the back of the deque.
      * If no such item exists, returns null.*/
     public T removeLast() {
-        if (size >= 1){
+        if (size >= 1) {
             T res = items[minusOne(nextLast)];
             items[minusOne(nextLast)] = null;
             nextLast = minusOne(nextLast);
             size -= 1;
 
-            if (items.length > 16 && size == items.length / 4){
+            if (items.length > 16 && size == items.length / 4) {
                 resize(items.length / refactor);
             }
             return res;
-        }
-        else {
+        } else {
             return  null;
         }
     }
@@ -169,10 +164,9 @@ public class ArrayDeque<T> {
      *  If no such item exists, returns null. Must not alter the deque!
      */
     public T get(int index) {
-        if (index > size -1 || index < 0){
+        if (index > size - 1 || index < 0) {
             return null;
-        }
-        else {
+        } else {
             index = (index + addOne(nextFirst)) % items.length;
             return items[index];
         }
