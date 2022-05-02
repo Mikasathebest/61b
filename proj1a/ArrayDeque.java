@@ -1,5 +1,5 @@
 // Create a circular ArrayDeque
-public class ArrayDeque <T>{
+public class ArrayDeque<T> {
     private T[] items;
     private int size;
     private int nextFirst;
@@ -11,7 +11,7 @@ public class ArrayDeque <T>{
      *  This Array is not traditional array.
      *  It uses two pointers nextFirst, nextLast to store the start point and the end point.
      * */
-    public  ArrayDeque(){
+    public  ArrayDeque() {
         items = (T[]) new Object[8];
         // random initialize
         nextFirst = 5;
@@ -58,7 +58,7 @@ public class ArrayDeque <T>{
     }
 
     /** Private helper function to move pointer.*/
-    private int addOne(int index){
+    private int addOne(int index) {
         if (index == items.length -1){
             index = 0;
         }
@@ -69,7 +69,7 @@ public class ArrayDeque <T>{
     }
 
     /** Private helper function to minus pointer. */
-    private int minusOne(int index){
+    private int minusOne(int index) {
         if (index == 0){
             index = items.length - 1;
         }
@@ -90,7 +90,7 @@ public class ArrayDeque <T>{
     }
 
     /** Adds an item of type int to the back of the deque.*/
-    public void addLast(T item){
+    public void addLast(T item) {
         if(size == items.length){
             resize(size * refactor);
         }
@@ -101,7 +101,7 @@ public class ArrayDeque <T>{
 
 
     /** Returns true if deque is empty, false otherwise. */
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         if (size == 0){
             return true;
         }
@@ -114,7 +114,7 @@ public class ArrayDeque <T>{
     }
 
     /** Prints the items in the deque from first to last, separated by a space.*/
-    public void printDeque(){
+    public void printDeque() {
         if (size == 0){
             System.out.println("Empty array!");
         }
@@ -128,7 +128,7 @@ public class ArrayDeque <T>{
     }
 
     /** Removes and returns the item at the front of the deque. If no such item exists, returns null.*/
-    public T removeFirst(){
+    public T removeFirst() {
         if (size >= 1){
             T res = items[addOne(nextFirst)];
             items[addOne(nextFirst)] = null;
@@ -148,7 +148,7 @@ public class ArrayDeque <T>{
 
     /** Removes and returns the item at the back of the deque.
      * If no such item exists, returns null.*/
-    public T removeLast(){
+    public T removeLast() {
         if (size >= 1){
             T res = items[minusOne(nextLast)];
             items[minusOne(nextLast)] = null;
@@ -168,7 +168,7 @@ public class ArrayDeque <T>{
     /** Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
      *  If no such item exists, returns null. Must not alter the deque!
      */
-    public T get(int index){
+    public T get(int index) {
         if (index > size -1 || index < 0){
             return null;
         }
