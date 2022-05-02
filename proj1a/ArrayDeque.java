@@ -136,8 +136,8 @@ public class ArrayDeque <T>{
             size -= 1;
 
             // Resize the array to save memory.
-            if (items.length > 16 && size < items.length / 4){
-                resize(size / refactor);
+            if (items.length > 16 && size == items.length / 4){
+                resize(items.length / refactor);
             }
             return res;
         }
@@ -155,8 +155,8 @@ public class ArrayDeque <T>{
             nextLast = minusOne(nextLast);
             size -= 1;
 
-            if (items.length > 16 && size < items.length / 4){
-                resize(size / refactor);
+            if (items.length > 16 && size == items.length / 4){
+                resize(items.length / refactor);
             }
             return res;
         }
