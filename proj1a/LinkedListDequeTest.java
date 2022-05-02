@@ -19,6 +19,15 @@ public class LinkedListDequeTest {
 		return true;
 	}
 
+	/** check return value is equal to expect or not.*/
+	public static boolean checkEqual(int expected, int actual) {
+		if (expected != actual) {
+			System.out.println("get() returned " + actual + ", but expected: " + expected);
+			return false;
+		}
+		return true;
+	}
+
 	/* Prints a nice message based on whether a test passed. 
 	 * The \n means newline. */
 	public static void printTestStatus(boolean passed) {
@@ -72,11 +81,22 @@ public class LinkedListDequeTest {
 		// should be empty
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
-		lld1.addFirst(10);
+		lld1.addLast(1);
+		lld1.removeLast();
+		lld1.addFirst(4);
+		lld1.addFirst(5);
+		lld1.addLast(6);
+		lld1.addFirst(7);
+
 		// should not be empty
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
+		lld1.printDeque();
+
 		lld1.removeFirst();
+		lld1.removeFirst();
+		lld1.removeLast();
+		lld1.removeLast();
 		// should be empty
 		passed = checkEmpty(true, lld1.isEmpty()) && passed;
 
@@ -84,9 +104,40 @@ public class LinkedListDequeTest {
 
 	}
 
+	/** get tests. Add 4 items and tests get methods -- iterative get and recursive get. */
+	public static void getTest() {
+		System.out.println("Running get test.");
+
+		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
+		// should be empty
+		boolean passed = checkEmpty(true, lld1.isEmpty());
+
+		lld1.addLast(1);
+		lld1.removeLast();
+		lld1.addFirst(4);
+		lld1.addFirst(5);
+		lld1.addLast(6);
+		lld1.addFirst(7);
+
+		System.out.println("Current linked deque:");
+		lld1.printDeque();
+		System.out.println("Test iterative get method.");
+		passed = checkEqual(4, lld1.get(2)) && passed;
+		printTestStatus(passed);
+
+		lld1.removeLast();
+		lld1.removeLast();
+		System.out.println("Current linked deque:");
+		lld1.printDeque();
+		System.out.println("Test recursive get method.");
+		passed = checkEqual(5, lld1.getRecursive(1)) && passed;
+		printTestStatus(passed);
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
+		getTest();
 	}
 } 
