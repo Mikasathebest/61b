@@ -1,4 +1,4 @@
-public class OffByOne implements CharacterComparator{
+public class OffByOne implements CharacterComparator {
 
 
     /** This function should implement CharacterComparator

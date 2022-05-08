@@ -27,17 +27,17 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("noon"));
     }
 
-    @Test
-    public void testIsPalindromeRecursive() {
-        assertFalse(palindrome.isPalindromeRecursive("cat"));
-        assertFalse(palindrome.isPalindromeRecursive("horse"));
-
-        assertTrue(palindrome.isPalindromeRecursive("a"));
-        assertTrue(palindrome.isPalindromeRecursive("bbb"));
-        assertTrue(palindrome.isPalindromeRecursive(""));
-        assertTrue(palindrome.isPalindromeRecursive("racecar"));
-        assertTrue(palindrome.isPalindromeRecursive("noon"));
-    }
+//    @Test
+//    public void testIsPalindromeRecursive() {
+//        assertFalse(palindrome.isPalindromeRecursive("cat"));
+//        assertFalse(palindrome.isPalindromeRecursive("horse"));
+//
+//        assertTrue(palindrome.isPalindromeRecursive("a"));
+//        assertTrue(palindrome.isPalindromeRecursive("bbb"));
+//        assertTrue(palindrome.isPalindromeRecursive(""));
+//        assertTrue(palindrome.isPalindromeRecursive("racecar"));
+//        assertTrue(palindrome.isPalindromeRecursive("noon"));
+//    }
 
     @Test
     public void testIsPalindromeOffByOne() {

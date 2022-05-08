@@ -37,7 +37,7 @@ public class Palindrome {
         }
 
         while (w.size() >= 2) {
-            if (!cc.equalChars(w.removeFirst() ,w.removeLast())) {
+            if (!cc.equalChars(w.removeFirst(), w.removeLast())) {
                 return false;
             }
         }
@@ -45,20 +45,20 @@ public class Palindrome {
 
     }
 
-    public boolean isPalindromeRecursive(String word) {
-        Deque<Character> w = wordToDeque(word);
-        return isPalindromeHelper(w);
-    }
-
-    private boolean isPalindromeHelper(Deque<Character> w) {
-        if (w.size() < 2) {
-            return true;
-        }
-        if (w.removeLast() == w.removeFirst()) {
-            return isPalindromeHelper(w);
-        } else {
-            return false;
-        }
-    }
+//    public boolean isPalindromeRecursive(String word) {
+//        Deque<Character> w = wordToDeque(word);
+//        return isPalindromeHelper(w);
+//    }
+//
+//    private boolean isPalindromeHelper(Deque<Character> w) {
+//        if (w.size() < 2) {
+//            return true;
+//        }
+//        if (w.removeLast() == w.removeFirst()) {
+//            return isPalindromeHelper(w);
+//        } else {
+//            return false;
+//        }
+//    }
 
 }

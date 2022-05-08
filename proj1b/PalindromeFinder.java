@@ -13,7 +13,7 @@ public class PalindromeFinder {
         int longestWordSize = 0;
         for (int i = 0; i <= 26; i++) {
             In in = new In("../library-sp18/data/words.txt");
-            CharacterComparator offByi= new OffByN(i);
+            CharacterComparator offByi = new OffByN(i);
             int currentPalindrome = 0;
             while (!in.isEmpty()) {
                 String word = in.readString();
