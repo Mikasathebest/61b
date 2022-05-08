@@ -17,6 +17,11 @@ public class TestOffByN {
         assertFalse(offBy5.equalChars('f', 'h'));
         assertFalse(offBy5.equalChars('z', 'a'));
         assertFalse(offBy5.equalChars('a', 'a'));
+
+        assertFalse(offBy5.equalChars('a', 'A'));
+        assertFalse(offBy5.equalChars('a', 'a'));
+
+        assertFalse(offBy5.equalChars('b', ']'));
     }
 }
 
