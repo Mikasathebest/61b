@@ -30,6 +30,20 @@ public class Palindrome {
         return true;
     }
 
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        Deque<Character> w = wordToDeque(word);
+        if (w.size() < 2) {
+            return true;
+        }
+
+        while (w.size() >= 2) {
+            if (!cc.equalChars(w.removeFirst() ,w.removeLast())) {
+                return false;
+            }
+        }
+        return true;
+
+    }
 
     public boolean isPalindromeRecursive(String word) {
         Deque<Character> w = wordToDeque(word);

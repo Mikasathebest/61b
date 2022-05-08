@@ -38,4 +38,16 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindromeRecursive("racecar"));
         assertTrue(palindrome.isPalindromeRecursive("noon"));
     }
+
+    @Test
+    public void testIsPalindromeOffByOne() {
+        CharacterComparator cc = new OffByOne();
+        assertTrue(palindrome.isPalindrome("flake", cc));
+        assertTrue(palindrome.isPalindrome("a", cc));
+        assertTrue(palindrome.isPalindrome("", cc));
+
+        assertFalse(palindrome.isPalindrome("abz", cc));
+        assertFalse(palindrome.isPalindrome("horse", cc));
+        assertFalse(palindrome.isPalindrome("aaa", cc));
+    }
 }
